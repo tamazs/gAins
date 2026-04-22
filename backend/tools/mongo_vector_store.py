@@ -1,15 +1,30 @@
 import os
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 import numpy as np
 from pymongo import MongoClient
+from pymongo.collection import Collection
 
-# Configuration — override via environment variables
-MONGO_URI = os.getenv("MONGODB_URI")
-DB_NAME = os.getenv("DB_NAME")
+_collection: Optional[Collection] = None
 
-_client = MongoClient(MONGO_URI)
-_db = _client[DB_NAME]
-_collection = _db["rag_documents"]  # separate collection from your sessions/goals
+
+def _get_collection() -> Collection:
+    """
+    Lazily initialise the MongoDB connection on first use.
+    This means env vars (loaded via dotenv in the entry point) are already
+    set by the time we actually try to connect.
+    """
+    global _collection
+    if _collection is None:
+        uri = os.getenv("MONGODB_URI")
+        db_name = os.getenv("DB_NAME")
+        if not uri or not db_name:
+            raise RuntimeError(
+                "MONGODB_URI and DB_NAME must be set before using the vector store. "
+                "Make sure your .env file is loaded (call load_dotenv() early in your entry point)."
+            )
+        client = MongoClient(uri)
+        _collection = client[db_name]["rag_documents"]
+    return _collection
 
 
 # --- Write operations ---
@@ -26,19 +41,19 @@ def store_document(text: str, embedding: List[float], source: str = "manual") ->
         "embedding": embedding,
         "source": source,
     }
-    result = _collection.insert_one(doc)
+    result = _get_collection().insert_one(doc)
     return str(result.inserted_id)
 
 
 def clear_documents() -> int:
     """Delete all stored documents. Returns the number of deleted documents."""
-    result = _collection.delete_many({})
+    result = _get_collection().delete_many({})
     return result.deleted_count
 
 
 def count_documents() -> int:
     """Return the total number of indexed chunks."""
-    return _collection.count_documents({})
+    return _get_collection().count_documents({})
 
 
 # --- Read / search operations ---
@@ -74,7 +89,7 @@ def similarity_search(
         A list of (text, score, source) tuples, sorted by score descending.
     """
     docs = list(
-        _collection.find({}, {"text": 1, "embedding": 1, "source": 1, "_id": 0})
+        _get_collection().find({}, {"text": 1, "embedding": 1, "source": 1, "_id": 0})
     )
 
     if not docs:

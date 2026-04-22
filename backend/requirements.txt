@@ -11,3 +11,4 @@ langchain-community
 langchain-core
 pytest
 httpx
+pypdf
