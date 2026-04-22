@@ -1,0 +1,13 @@
+fastapi
+pydantic
+uvicorn
+fastmcp
+pymongo
+motor
+python-dotenv
+langchain
+langchain_ollama
+langchain-community
+langchain-core
+pytest
+httpx
