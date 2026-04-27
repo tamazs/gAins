@@ -1,6 +1,6 @@
 from pydantic import BaseModel, field_validator, model_validator
 from typing import List, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 
 class ExerciseSet(BaseModel):
     reps: int
@@ -91,7 +91,7 @@ class WorkoutSessionRequest(BaseModel):
     @field_validator("date")
     @classmethod
     def date_cannot_be_future(cls, v):
-        if v > datetime.now():
+        if v > datetime.now(timezone.utc):
             raise ValueError("Session date cannot be in the future")
         return v
 
