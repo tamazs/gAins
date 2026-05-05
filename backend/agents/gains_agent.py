@@ -5,6 +5,7 @@ from langchain_core.callbacks import BaseCallbackHandler
 
 from agents.tools.rag_tool import rag_tool
 from agents.tools.session_history_tool import session_history_tool
+from agents.tools.goal_entries_tool import goal_entries_tool
 
 
 class _SourceTracker(BaseCallbackHandler):
@@ -22,16 +23,14 @@ class _SourceTracker(BaseCallbackHandler):
 class GainsAgent:
     def __init__(self, model: str = "gAinsModel"):
         llm = ChatOllama(model=model)
-        tools = [rag_tool, session_history_tool]
+        tools = [session_history_tool, goal_entries_tool, rag_tool]
 
         prompt = ChatPromptTemplate.from_messages([
             ("system", (
-                "When you receive a workout session to analyse, always follow this order: "
-                "1. Call session_history_tool to retrieve the user's recent sessions and identify trends in weight, volume, and RPE across them. "
-                "2. Call rag_tool with a query informed by what you found in the history. "
-                "3. Respond with advice that explicitly references the historical trend and is grounded in the retrieved evidence. "
-                "Never give generic advice — always reflect the user's actual history in your reasoning and summary. "
-                "Respond only with the JSON structure you were given, no markdown, no extra text."
+                "You are a strength training advisor. The prompt you receive will tell you exactly what task to perform. "
+                "Follow the instructions in the prompt precisely — it will specify which tools to call and what to return. "
+                "Never give generic advice. Always ground your response in the data you retrieve from tools. "
+                "Respond only with the JSON structure specified in the prompt, no markdown, no extra text."
             )),
             ("human", "{input}"),
             MessagesPlaceholder("agent_scratchpad"),

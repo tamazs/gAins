@@ -12,3 +12,5 @@ langchain-core
 pytest
 httpx
 pypdf
+bcrypt
+python-jose[cryptography]
