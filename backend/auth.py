@@ -76,7 +76,11 @@ def decode_access_token(token: str) -> str:
         payload = jwt.decode(token, _secret(), algorithms=[ALGORITHM])
         user_id: str = payload.get("sub")
         if user_id is None:
-            raise ValueError("Missing sub claim")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid or expired token: missing sub claim",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
         return user_id
     except JWTError as e:
         raise HTTPException(
