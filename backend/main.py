@@ -166,6 +166,17 @@ def retrieve_goal(user_id: str) -> GoalResponse:
     return GoalResponse(**doc)
 
 
+@app.get("/goals/entries/{user_id}", response_model=list[GoalEntryResponse])
+def get_entries_for_user(user_id: str, limit: int = 20) -> list:
+    """Fetch the most recent goal entries for a user (newest first)."""
+    goal = get_goal(user_id)
+    if not goal:
+        raise HTTPException(status_code=404, detail="No active goal found for this user.")
+    exercise_name = goal["exercise_name"]
+    entries = get_goal_entries(user_id, exercise_name, limit=limit)
+    return [GoalEntryResponse(**e) for e in entries]
+
+
 @app.post("/goals/entries", response_model=GoalEntryResponse)
 def log_goal_entry(entry: GoalEntryRequest) -> GoalEntryResponse:
     """Log a training entry toward the user's active goal."""
