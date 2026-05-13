@@ -1,2 +1,4 @@
 .env
 rag_docs
+eval/node_modules
+../CLAUDE.md

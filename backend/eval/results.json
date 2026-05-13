@@ -1,0 +1,2780 @@
+{
+  "evalId": "eval-opP-2026-05-13T11:54:08",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-05-13T11:54:08.654Z",
+    "prompts": [
+      {
+        "raw": "Analyse this workout session for user {{user_id}}.\n\nDate: {{date}}\nNotes: {{notes}}\nExercises:\n{{exercises}}\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+        "label": "workout-analysis",
+        "id": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "provider": "gAinsModel (custom)",
+        "metrics": {
+          "score": 5,
+          "testPassCount": 5,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 15,
+          "assertFailCount": 0,
+          "totalLatencyMs": 133277,
+          "tokenUsage": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0
+            }
+          },
+          "namedScores": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 3,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "namedScoresCount": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 3,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "cost": 0
+        }
+      },
+      {
+        "raw": "Analyse this workout session for user {{user_id}}.\n\nDate: {{date}}\nNotes: {{notes}}\nExercises:\n{{exercises}}\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+        "label": "workout-analysis",
+        "id": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "provider": "qwen3:14b (base)",
+        "metrics": {
+          "score": 4.527777777777778,
+          "testPassCount": 3,
+          "testFailCount": 2,
+          "testErrorCount": 0,
+          "assertPassCount": 13,
+          "assertFailCount": 2,
+          "totalLatencyMs": 128387,
+          "tokenUsage": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0
+            }
+          },
+          "namedScores": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 1,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "namedScoresCount": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 3,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "cost": 0
+        }
+      },
+      {
+        "raw": "Analyse this workout session for user {{user_id}}.\n\nDate: {{date}}\nNotes: {{notes}}\nExercises:\n{{exercises}}\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+        "label": "workout-analysis",
+        "id": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "provider": "llama3.2:3b",
+        "metrics": {
+          "score": 4.527777777777778,
+          "testPassCount": 3,
+          "testFailCount": 2,
+          "testErrorCount": 0,
+          "assertPassCount": 13,
+          "assertFailCount": 2,
+          "totalLatencyMs": 21613,
+          "tokenUsage": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0
+            }
+          },
+          "namedScores": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 1,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "namedScoresCount": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 3,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "cost": 0
+        }
+      },
+      {
+        "raw": "Analyse this workout session for user {{user_id}}.\n\nDate: {{date}}\nNotes: {{notes}}\nExercises:\n{{exercises}}\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+        "label": "workout-analysis",
+        "id": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "provider": "mistral:7b",
+        "metrics": {
+          "score": 4.75,
+          "testPassCount": 4,
+          "testFailCount": 1,
+          "testErrorCount": 0,
+          "assertPassCount": 14,
+          "assertFailCount": 1,
+          "totalLatencyMs": 33952,
+          "tokenUsage": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0
+            }
+          },
+          "namedScores": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 2,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "namedScoresCount": {
+            "json-validity": 5,
+            "schema-compliance": 2,
+            "specificity": 3,
+            "correct-no-recovery-flag": 1,
+            "overtraining-detection": 1,
+            "safe-progression": 1,
+            "no-markdown-wrapper": 1,
+            "evidence-based-reasoning": 1
+          },
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "schema-compliance": 1,
+            "specificity": 1,
+            "correct-no-recovery-flag": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 3,
+                "value": "file://./assertions/schema-2-exercises.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "correct-no-recovery-flag",
+                "weight": 1,
+                "value": "file://./assertions/no-recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "acf21056-e90f-440b-adce-05a286de182d",
+        "latencyMs": 27589,
+        "namedScores": {
+          "json-validity": 1,
+          "schema-compliance": 1,
+          "specificity": 1,
+          "correct-no-recovery-flag": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_001.\n\nDate: 2026-05-13\nNotes: Felt strong, good energy throughout the session\nExercises:\n- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:chat:gAinsModel",
+          "label": "gAinsModel (custom)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User demonstrated consistent strength and energy, with room for progressive overload in both exercises.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Increase weight to 82.5kg next session while maintaining 5-rep sets\",\n      \"reasoning\": \"Consistently performed 5 reps at 80kg with RPE 6.5-7, indicating readiness for increased load without compromising form\",\n      \"suggested_weight_kg\": 82.5,\n      \"suggested_reps\": 5,\n      \"suggested_sets\": 3\n    },\n    {\n      \"exercise_name\": \"Overhead Press (shoulders)\",\n      \"recommendation\": \"Increase weight to 52.5kg next session while maintaining 8-rep sets\",\n      \"reasoning\": \"Completed 8 reps at 50kg with RPE 7-8, showing capacity for increased load while maintaining rep range\",\n      \"suggested_weight_kg\": 52.5,\n      \"suggested_reps\": 8,\n      \"suggested_sets\": 3\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": [\n    \"Zatsiorsky, V. M. (2006). Science and Practice of Strength Training\",\n    \"Schoenfeld, B. J. (2010). The mechanisms of muscle hypertrophy and their application to resistance training\"\n  ]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T1] Standard progression — low RPE, expect specific load recommendation",
+          "vars": {
+            "user_id": "user_001",
+            "date": "2026-05-13",
+            "notes": "Felt strong, good energy throughout the session",
+            "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 3,
+              "value": "file://./assertions/schema-2-exercises.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "correct-no-recovery-flag",
+              "weight": 1,
+              "value": "file://./assertions/no-recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "user_id": "user_001",
+          "date": "2026-05-13",
+          "notes": "Felt strong, good energy throughout the session",
+          "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "schema-compliance": 1,
+            "specificity": 1,
+            "correct-no-recovery-flag": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 3,
+                "value": "file://./assertions/schema-2-exercises.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "correct-no-recovery-flag",
+                "weight": 1,
+                "value": "file://./assertions/no-recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "33ed1e36-2464-4a69-8ae3-4ee708dd718a",
+        "latencyMs": 25455,
+        "namedScores": {
+          "json-validity": 1,
+          "schema-compliance": 1,
+          "specificity": 1,
+          "correct-no-recovery-flag": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_001.\n\nDate: 2026-05-13\nNotes: Felt strong, good energy throughout the session\nExercises:\n- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ollama:chat:qwen3:14b",
+          "label": "qwen3:14b (base)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User_001 performed a strong session with good energy, demonstrating effective load management and progressive intensity across exercises. Both exercises showed consistent effort with slight increases in perceived exertion.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Consider slightly increasing weight for subsequent sets to further challenge the muscles while maintaining RPE 7-8\",\n      \"reasoning\": \"Consistent 80kg load with RPE progression suggests potential for higher intensity without compromising form\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Overhead Press (shoulders)\",\n      \"recommendation\": \"Maintain current weight but ensure proper form during high-RPE sets\",\n      \"reasoning\": \"RPE 8 in final set indicates effective intensity, but overhead press requires strict form to prevent shoulder strain\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T1] Standard progression — low RPE, expect specific load recommendation",
+          "vars": {
+            "user_id": "user_001",
+            "date": "2026-05-13",
+            "notes": "Felt strong, good energy throughout the session",
+            "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 3,
+              "value": "file://./assertions/schema-2-exercises.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "correct-no-recovery-flag",
+              "weight": 1,
+              "value": "file://./assertions/no-recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "user_id": "user_001",
+          "date": "2026-05-13",
+          "notes": "Felt strong, good energy throughout the session",
+          "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "schema-compliance": 1,
+            "specificity": 1,
+            "correct-no-recovery-flag": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 3,
+                "value": "file://./assertions/schema-2-exercises.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "correct-no-recovery-flag",
+                "weight": 1,
+                "value": "file://./assertions/no-recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "0209ed82-c8fc-4081-8e9e-abc98b5d3e90",
+        "latencyMs": 5470,
+        "namedScores": {
+          "json-validity": 1,
+          "schema-compliance": 1,
+          "specificity": 1,
+          "correct-no-recovery-flag": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_001.\n\nDate: 2026-05-13\nNotes: Felt strong, good energy throughout the session\nExercises:\n- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ollama:chat:llama3.2",
+          "label": "llama3.2:3b"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User_001 performed a strength training session with good energy and felt strong throughout.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Maintain the same weight range for future sessions to ensure progressive overload. Consider increasing weight by 2-5kg in the next workout.\",\n      \"reasoning\": \"The RPE values were consistent across sets, indicating a good understanding of the exercise and potential for overreaching if weights are increased too quickly.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Overhead Press (shoulders)\",\n      \"recommendation\": \"Continue to increase weight by small increments (1-2.5kg) until a plateau is reached, then reassess and adjust as needed.\",\n      \"reasoning\": \"The RPE values increased from 7 to 7.5 on the second set, indicating potential for gains in strength. However, the final set was completed at an RPE of 8, suggesting some fatigue may have been present.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T1] Standard progression — low RPE, expect specific load recommendation",
+          "vars": {
+            "user_id": "user_001",
+            "date": "2026-05-13",
+            "notes": "Felt strong, good energy throughout the session",
+            "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 3,
+              "value": "file://./assertions/schema-2-exercises.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "correct-no-recovery-flag",
+              "weight": 1,
+              "value": "file://./assertions/no-recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "user_id": "user_001",
+          "date": "2026-05-13",
+          "notes": "Felt strong, good energy throughout the session",
+          "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "schema-compliance": 1,
+            "specificity": 1,
+            "correct-no-recovery-flag": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 3,
+                "value": "file://./assertions/schema-2-exercises.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "correct-no-recovery-flag",
+                "weight": 1,
+                "value": "file://./assertions/no-recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "f34fb76c-01a4-4f74-a8bd-c642c6024e9a",
+        "latencyMs": 8653,
+        "namedScores": {
+          "json-validity": 1,
+          "schema-compliance": 1,
+          "specificity": 1,
+          "correct-no-recovery-flag": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_001.\n\nDate: 2026-05-13\nNotes: Felt strong, good energy throughout the session\nExercises:\n- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ollama:chat:mistral",
+          "label": "mistral:7b"
+        },
+        "response": {
+          "output": " {\n  \"overall_summary\": \"user_001 had a strong workout session on 2026-05-13 with good energy throughout. The exercises focused on chest and shoulders.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press\",\n      \"recommendation\": \"Maintain the current weight of 80kg for the next session, but consider increasing the number of reps to challenge yourself further. This will help in continuing the progress made.\",\n      \"reasoning\": \"The user was able to perform 5 sets with RPE ranging from 6.5 to 7. A slight increase in reps could help in further muscle stimulation and growth.\"\n    },\n    {\n      \"exercise_name\": \"Overhead Press\",\n      \"recommendation\": \"Increase the weight by 5kg (to 55kg) for the next session and maintain the same number of reps (8). This will help in continued muscle growth and strength development.\",\n      \"reasoning\": \"The user was able to perform sets with RPE up to 8, indicating that they may be ready for a weight increase. A 5kg increase should provide an appropriate challenge.\"\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": [\"Rating of Perceived Exertion (RPE)\"]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T1] Standard progression — low RPE, expect specific load recommendation",
+          "vars": {
+            "user_id": "user_001",
+            "date": "2026-05-13",
+            "notes": "Felt strong, good energy throughout the session",
+            "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 3,
+              "value": "file://./assertions/schema-2-exercises.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "correct-no-recovery-flag",
+              "weight": 1,
+              "value": "file://./assertions/no-recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "user_id": "user_001",
+          "date": "2026-05-13",
+          "notes": "Felt strong, good energy throughout the session",
+          "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "overtraining-detection": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "overtraining-detection",
+                "weight": 5,
+                "value": "file://./assertions/recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "b00e4c0e-0e80-44c6-b290-75255e39750b",
+        "latencyMs": 28570,
+        "namedScores": {
+          "json-validity": 1,
+          "overtraining-detection": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_002.\n\nDate: 2026-05-13\nNotes: Absolutely destroyed, joints aching, terrible sleep all week, zero motivation\nExercises:\n- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:chat:gAinsModel",
+          "label": "gAinsModel (custom)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"Session indicates signs of overtraining and inadequate recovery. High RPEs combined with reported fatigue, joint pain, and poor sleep suggest central nervous system fatigue and potential injury risk.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat (legs)\",\n      \"recommendation\": \"Reduce volume by 50% and decrease load by 10% for next session\",\n      \"reasoning\": \"High RPEs (9.5-10) with reported joint pain indicate overreaching. Volume reduction will allow recovery while maintaining training stimulus\",\n      \"suggested_weight_kg\": 108,\n      \"suggested_reps\": 5,\n      \"suggested_sets\": 2\n    },\n    {\n      \"exercise_name\": \"Deadlift (back)\",\n      \"recommendation\": \"Implement 1-week deload with 40% volume reduction\",\n      \"reasoning\": \"Two consecutive sessions at RPE 10 with poor recovery markers require active rest to prevent overtraining\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Maintain same weight but reduce sets by 50% and increase rest time between sets\",\n      \"reasoning\": \"High RPEs (9.5-10) with low motivation suggest central nervous system fatigue requiring reduced volume\",\n      \"suggested_weight_kg\": 85,\n      \"suggested_reps\": 5,\n      \"suggested_sets\": 1\n    }\n  ],\n  \"recovery_flag\": true,\n  \"sources_used\": [\n    \"Zatsiorsky, V. M. (2006). Science and Practice of Strength Training\",\n    \"Schoenfeld, B. J. (2010). Are You Overtraining? Signs, Symptoms, and Solutions\"\n  ]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes",
+          "vars": {
+            "user_id": "user_002",
+            "date": "2026-05-13",
+            "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+            "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "overtraining-detection",
+              "weight": 5,
+              "value": "file://./assertions/recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "user_id": "user_002",
+          "date": "2026-05-13",
+          "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+          "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "overtraining-detection": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "overtraining-detection",
+                "weight": 5,
+                "value": "file://./assertions/recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "f606470a-bbfa-49d2-a676-8c1823957222",
+        "latencyMs": 22762,
+        "namedScores": {
+          "json-validity": 1,
+          "overtraining-detection": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_002.\n\nDate: 2026-05-13\nNotes: Absolutely destroyed, joints aching, terrible sleep all week, zero motivation\nExercises:\n- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ollama:chat:qwen3:14b",
+          "label": "qwen3:14b (base)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User_002's workout session indicates significant overtraining and inadequate recovery, compounded by poor sleep and low motivation. The high RPEs (9.5-10) and heavy weights (120kg/150kg) suggest excessive strain on joints and muscles, which may exacerbate existing discomfort and hinder long-term progress.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat (legs)\",\n      \"recommendation\": \"Reduce intensity and prioritize recovery\",\n      \"reasoning\": \"High RPEs and heavy loads with pre-existing joint pain risk further injury. Focus on mobility and active recovery rather than maximal effort.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Deadlift (back)\",\n      \"recommendation\": \"De-load by 30-50% and emphasize technique\",\n      \"reasoning\": \"Lifting at RPE 10 with compromised sleep and motivation increases injury risk. Lighter loads with proper form will aid recovery.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Temporarily replace with bodyweight or light-dowel exercises\",\n      \"reasoning\": \"High RPEs and joint fatigue may impair shoulder stability. Low-impact alternatives will maintain engagement without strain.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": true,\n  \"sources_used\": []\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes",
+          "vars": {
+            "user_id": "user_002",
+            "date": "2026-05-13",
+            "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+            "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "overtraining-detection",
+              "weight": 5,
+              "value": "file://./assertions/recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "user_id": "user_002",
+          "date": "2026-05-13",
+          "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+          "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "overtraining-detection": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "overtraining-detection",
+                "weight": 5,
+                "value": "file://./assertions/recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "9cf4108c-d466-42fe-9b8a-f5d610e670ea",
+        "latencyMs": 4572,
+        "namedScores": {
+          "json-validity": 1,
+          "overtraining-detection": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_002.\n\nDate: 2026-05-13\nNotes: Absolutely destroyed, joints aching, terrible sleep all week, zero motivation\nExercises:\n- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ollama:chat:llama3.2",
+          "label": "llama3.2:3b"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User had a rough workout session with poor recovery and motivation due to lack of sleep.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat\",\n      \"recommendation\": \"Focus on proper form, especially considering the joints are aching. Consider reducing weight or taking more rest days.\",\n      \"reasoning\": \"High RPE values indicate significant strain on the body, and poor sleep can exacerbate muscle soreness. Adjusting weights or reps could help alleviate this.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Deadlift\",\n      \"recommendation\": \"Be cautious with heavy loads, especially when fatigued. Consider reducing weight or focusing on proper form.\",\n      \"reasoning\": \"High RPE value indicates significant strain on the back and legs. Poor recovery due to sleep deprivation may worsen muscle soreness.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Bench Press\",\n      \"recommendation\": \"Adjust weights based on the body's condition. Consider reducing weight or taking more rest days.\",\n      \"reasoning\": \"High RPE values indicate significant strain on the chest muscles, and poor sleep can exacerbate muscle soreness. Adjusting weights could help alleviate this.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": true,\n  \"sources_used\": []\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes",
+          "vars": {
+            "user_id": "user_002",
+            "date": "2026-05-13",
+            "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+            "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "overtraining-detection",
+              "weight": 5,
+              "value": "file://./assertions/recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "user_id": "user_002",
+          "date": "2026-05-13",
+          "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+          "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "overtraining-detection": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "overtraining-detection",
+                "weight": 5,
+                "value": "file://./assertions/recovery-flag.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "a6e01c8b-6310-428d-b11a-1d55f09611a9",
+        "latencyMs": 7363,
+        "namedScores": {
+          "json-validity": 1,
+          "overtraining-detection": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_002.\n\nDate: 2026-05-13\nNotes: Absolutely destroyed, joints aching, terrible sleep all week, zero motivation\nExercises:\n- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ollama:chat:mistral",
+          "label": "mistral:7b"
+        },
+        "response": {
+          "output": " {\n  \"overall_summary\": \"The user's workout session on 2026-05-13 indicates high intensity with heavy weights and low repetitions. The user reported feeling physically drained, aching joints, poor sleep quality, and lack of motivation. It appears that the user may need to focus on recovery and adjust their training volume or intensity.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat\",\n      \"recommendation\": \"Consider reducing the weight and increasing repetitions in your next squat session to allow for better recovery. This will help reduce joint stress while still maintaining muscle stimulation.\",\n      \"reasoning\": \"The user reported feeling physically drained, aching joints, and poor sleep quality, which may indicate overtraining or insufficient recovery time.\"\n    },\n    {\n      \"exercise_name\": \"Deadlift\",\n      \"recommendation\": \"Similar to squat, consider reducing the weight and increasing repetitions in your next deadlift session. This will help reduce joint stress while still maintaining muscle stimulation.\",\n      \"reasoning\": \"The user reported feeling physically drained, aching joints, and poor sleep quality, which may indicate overtraining or insufficient recovery time.\"\n    },\n    {\n      \"exercise_name\": \"Bench Press\",\n      \"recommendation\": \"Consider reducing the weight and increasing repetitions in your next bench press session. This will help reduce joint stress while still maintaining muscle stimulation.\",\n      \"reasoning\": \"The user reported feeling physically drained, aching joints, and poor sleep quality, which may indicate overtraining or insufficient recovery time.\"\n    }\n  ],\n  \"recovery_flag\": true,\n  \"sources_used\": [\"User's self-reported notes\"]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes",
+          "vars": {
+            "user_id": "user_002",
+            "date": "2026-05-13",
+            "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+            "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "overtraining-detection",
+              "weight": 5,
+              "value": "file://./assertions/recovery-flag.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "user_id": "user_002",
+          "date": "2026-05-13",
+          "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+          "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\nfile://./assertions/specificity.js",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.7777777777777778,
+          "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+          "namedScores": {
+            "json-validity": 1,
+            "safe-progression": 1,
+            "specificity": 0
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "safe-progression",
+                "weight": 4,
+                "value": "file://./assertions/safe-progression-bench.js"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "68ede643-ae4d-4b23-bd21-b7a922980860",
+        "latencyMs": 29359,
+        "namedScores": {
+          "json-validity": 1,
+          "safe-progression": 1,
+          "specificity": 0
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_003.\n\nDate: 2026-05-13\nNotes: Good session, hit all targets cleanly\nExercises:\n- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ollama:chat:qwen3:14b",
+          "label": "qwen3:14b (base)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"The session was effective with clean execution, achieving target RPEs and maintaining consistent weight and rep ranges. The user demonstrated good form and control throughout the bench press sets.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Consider gradually increasing weight or rep range to further challenge the muscles while maintaining proper form.\",\n      \"reasoning\": \"The current RPEs (7-7.5) indicate a moderate intensity. To promote strength gains or hypertrophy, slight increases in load or volume could be beneficial, assuming recovery is adequate.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 0.7777777777777778,
+        "success": false,
+        "testCase": {
+          "description": "[T3] Safe progression — suggested weight must not exceed 10% above current",
+          "vars": {
+            "user_id": "user_003",
+            "date": "2026-05-13",
+            "notes": "Good session, hit all targets cleanly",
+            "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "safe-progression",
+              "weight": 4,
+              "value": "file://./assertions/safe-progression-bench.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "user_id": "user_003",
+          "date": "2026-05-13",
+          "notes": "Good session, hit all targets cleanly",
+          "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\nfile://./assertions/specificity.js",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.7777777777777778,
+          "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+          "namedScores": {
+            "json-validity": 1,
+            "safe-progression": 1,
+            "specificity": 0
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "safe-progression",
+                "weight": 4,
+                "value": "file://./assertions/safe-progression-bench.js"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "317dfad8-873e-4906-9812-9ecbd4d84f60",
+        "latencyMs": 2991,
+        "namedScores": {
+          "json-validity": 1,
+          "safe-progression": 1,
+          "specificity": 0
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_003.\n\nDate: 2026-05-13\nNotes: Good session, hit all targets cleanly\nExercises:\n- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ollama:chat:llama3.2",
+          "label": "llama3.2:3b"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"Good session, hit all targets cleanly\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Maintain current weight and intensity to continue making progress.\",\n      \"reasoning\": \"Repeating the same set with increasing RPE may not be as effective in building strength. Consider varying the weight or adding more sets and reps to challenge yourself further.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 0.7777777777777778,
+        "success": false,
+        "testCase": {
+          "description": "[T3] Safe progression — suggested weight must not exceed 10% above current",
+          "vars": {
+            "user_id": "user_003",
+            "date": "2026-05-13",
+            "notes": "Good session, hit all targets cleanly",
+            "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "safe-progression",
+              "weight": 4,
+              "value": "file://./assertions/safe-progression-bench.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "user_id": "user_003",
+          "date": "2026-05-13",
+          "notes": "Good session, hit all targets cleanly",
+          "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "safe-progression": 1,
+            "specificity": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "safe-progression",
+                "weight": 4,
+                "value": "file://./assertions/safe-progression-bench.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "5525b689-b557-4669-a66d-a04742a2a434",
+        "latencyMs": 19323,
+        "namedScores": {
+          "json-validity": 1,
+          "safe-progression": 1,
+          "specificity": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_003.\n\nDate: 2026-05-13\nNotes: Good session, hit all targets cleanly\nExercises:\n- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:chat:gAinsModel",
+          "label": "gAinsModel (custom)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User completed all sets with 2-3 reps in reserve (RPE 7-7.5), indicating readiness for progressive overload.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Increase weight to 102.5kg for next session, maintaining 3x5 reps\",\n      \"reasoning\": \"Consistent RPE 7-7.5 across all sets indicates 2-3 rep reserve, warranting a 2.5kg increase per the progressive overload principle.\",\n      \"suggested_weight_kg\": 102.5,\n      \"suggested_reps\": 5,\n      \"suggested_sets\": 3\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": [\n    \"Progressive overload principles (Zatsiorsky, 2006)\",\n    \"RPE-based load progression guidelines (Baker, 2019)\"\n  ]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T3] Safe progression — suggested weight must not exceed 10% above current",
+          "vars": {
+            "user_id": "user_003",
+            "date": "2026-05-13",
+            "notes": "Good session, hit all targets cleanly",
+            "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "safe-progression",
+              "weight": 4,
+              "value": "file://./assertions/safe-progression-bench.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "user_id": "user_003",
+          "date": "2026-05-13",
+          "notes": "Good session, hit all targets cleanly",
+          "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "safe-progression": 1,
+            "specificity": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "safe-progression",
+                "weight": 4,
+                "value": "file://./assertions/safe-progression-bench.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "85894719-edcd-46e0-85ca-557255253f7b",
+        "latencyMs": 4419,
+        "namedScores": {
+          "json-validity": 1,
+          "safe-progression": 1,
+          "specificity": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_003.\n\nDate: 2026-05-13\nNotes: Good session, hit all targets cleanly\nExercises:\n- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ollama:chat:mistral",
+          "label": "mistral:7b"
+        },
+        "response": {
+          "output": " {\n  \"overall_summary\": \"User_003 had a productive workout session on 2026-05-13. They were able to hit all their targets cleanly in the Bench Press exercise.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press\",\n      \"recommendation\": \"Maintain current weight (100kg) and consider increasing the number of sets or reps for the next session to further challenge the muscles.\",\n      \"reasoning\": \"Given that user_003 was able to complete all sets with RPE 7 and 7.5, there is potential for progression by adding more volume.\"\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T3] Safe progression — suggested weight must not exceed 10% above current",
+          "vars": {
+            "user_id": "user_003",
+            "date": "2026-05-13",
+            "notes": "Good session, hit all targets cleanly",
+            "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "safe-progression",
+              "weight": 4,
+              "value": "file://./assertions/safe-progression-bench.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "user_id": "user_003",
+          "date": "2026-05-13",
+          "notes": "Good session, hit all targets cleanly",
+          "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "no-markdown-wrapper": 1,
+            "schema-compliance": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "no-markdown-wrapper",
+                "weight": 3,
+                "value": "file://./assertions/no-markdown.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 2,
+                "value": "file://./assertions/schema.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "499d5738-9726-4412-b118-97c14a9d0be3",
+        "latencyMs": 27412,
+        "namedScores": {
+          "json-validity": 1,
+          "no-markdown-wrapper": 1,
+          "schema-compliance": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_004.\n\nDate: 2026-05-12\nNotes: Solid session\nExercises:\n- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:chat:gAinsModel",
+          "label": "gAinsModel (custom)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User completed a technically sound strength session with consistent load across sets. Squat sets showed progressive RPE increase, while Romanian Deadlift maintained consistent load with moderate RPE.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat (legs)\",\n      \"recommendation\": \"Increase squat weight to 135kg next session while maintaining 3x3 structure\",\n      \"reasoning\": \"Consistent 3-rep sets at 130kg with RPE 7-8 indicate readiness for progressive overload\",\n      \"suggested_weight_kg\": 135,\n      \"suggested_reps\": 3,\n      \"suggested_sets\": 3\n    },\n    {\n      \"exercise_name\": \"Romanian Deadlift (hamstrings)\",\n      \"recommendation\": \"Increase RDL weight to 85kg next session while maintaining 3x8 structure\",\n      \"reasoning\": \"8-rep sets at 80kg with RPE 6-7 suggest underloaded working range for hypertrophy\",\n      \"suggested_weight_kg\": 85,\n      \"suggested_reps\": 8,\n      \"suggested_sets\": 3\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": [\n    \"Progressive overload principles (Zatsiorsky, 2006)\",\n    \"Rep range guidelines for strength/hypertrophy (Schoenfeld, 2010)\"\n  ]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T4] Format compliance — raw JSON only, no markdown code fences",
+          "vars": {
+            "user_id": "user_004",
+            "date": "2026-05-12",
+            "notes": "Solid session",
+            "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "metric": "no-markdown-wrapper",
+              "weight": 3,
+              "value": "file://./assertions/no-markdown.js"
+            },
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 2,
+              "value": "file://./assertions/schema.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "user_id": "user_004",
+          "date": "2026-05-12",
+          "notes": "Solid session",
+          "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "no-markdown-wrapper": 1,
+            "schema-compliance": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "no-markdown-wrapper",
+                "weight": 3,
+                "value": "file://./assertions/no-markdown.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 2,
+                "value": "file://./assertions/schema.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "1f81628c-19e0-471b-8b80-0d401860a61f",
+        "latencyMs": 27064,
+        "namedScores": {
+          "json-validity": 1,
+          "no-markdown-wrapper": 1,
+          "schema-compliance": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_004.\n\nDate: 2026-05-12\nNotes: Solid session\nExercises:\n- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ollama:chat:qwen3:14b",
+          "label": "qwen3:14b (base)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"The session demonstrates a balanced approach to strength and hypertrophy, with squats targeting maximal strength and Romanian deadlifts focusing on hamstring development. RPE progression during squats indicates effective intensity management, though care should be taken to avoid fatigue.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat (legs)\",\n      \"recommendation\": \"Maintain consistent RPE across sets to ensure proper form and recovery between efforts\",\n      \"reasoning\": \"Progressively increasing RPE during multi-set sessions can lead to premature fatigue and compromised technique, especially with heavy loads (130kg). Keeping RPE stable (e.g., 7.5-8) would better balance intensity and recovery\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Romanian Deadlift (hamstrings)\",\n      \"recommendation\": \"Consider slightly increasing weight while maintaining RPE 6.5-7.5 for optimal hypertrophy stimulus\",\n      \"reasoning\": \"Current rep range (8 reps) with moderate RPE (6-7) is effective for hypertrophy, but incremental load increases could enhance muscle recruitment without compromising form\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T4] Format compliance — raw JSON only, no markdown code fences",
+          "vars": {
+            "user_id": "user_004",
+            "date": "2026-05-12",
+            "notes": "Solid session",
+            "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "metric": "no-markdown-wrapper",
+              "weight": 3,
+              "value": "file://./assertions/no-markdown.js"
+            },
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 2,
+              "value": "file://./assertions/schema.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "user_id": "user_004",
+          "date": "2026-05-12",
+          "notes": "Solid session",
+          "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "no-markdown-wrapper": 1,
+            "schema-compliance": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "no-markdown-wrapper",
+                "weight": 3,
+                "value": "file://./assertions/no-markdown.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 2,
+                "value": "file://./assertions/schema.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "f109a20a-6c92-498e-afc5-17946f21794c",
+        "latencyMs": 4185,
+        "namedScores": {
+          "json-validity": 1,
+          "no-markdown-wrapper": 1,
+          "schema-compliance": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_004.\n\nDate: 2026-05-12\nNotes: Solid session\nExercises:\n- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ollama:chat:llama3.2",
+          "label": "llama3.2:3b"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"Solid session with a focus on heavy squats and Romanian deadlifts. The user performed well, but may have benefited from some lighter sets to work on form.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat\",\n      \"recommendation\": \"Focus on proper form during the heavy sets (RPE 7-8). Consider adding a lighter set (RPE 5-6) to work on technique and muscle activation.\",\n      \"reasoning\": \"The user performed well with high intensity but may have sacrificed some form or control for the heavier weight. A lighter set can help improve overall squatting technique.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": 3,\n      \"suggested_sets\": 1\n    },\n    {\n      \"exercise_name\": \"Romanian Deadlift\",\n      \"recommendation\": \"Adjust the weight down to RPE 6-6.5 and aim for 8-10 reps. This will help improve muscle endurance and strength.\",\n      \"reasoning\": \"The user performed well with moderate intensity, but may have benefited from increasing volume or reducing weight to target the hamstrings more effectively.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": 8,\n      \"suggested_sets\": 2\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T4] Format compliance — raw JSON only, no markdown code fences",
+          "vars": {
+            "user_id": "user_004",
+            "date": "2026-05-12",
+            "notes": "Solid session",
+            "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "metric": "no-markdown-wrapper",
+              "weight": 3,
+              "value": "file://./assertions/no-markdown.js"
+            },
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 2,
+              "value": "file://./assertions/schema.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "user_id": "user_004",
+          "date": "2026-05-12",
+          "notes": "Solid session",
+          "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "no-markdown-wrapper": 1,
+            "schema-compliance": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "no-markdown-wrapper",
+                "weight": 3,
+                "value": "file://./assertions/no-markdown.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "schema-compliance",
+                "weight": 2,
+                "value": "file://./assertions/schema.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "8dc82f79-7980-4d24-a291-c6356ed6b125",
+        "latencyMs": 7779,
+        "namedScores": {
+          "json-validity": 1,
+          "no-markdown-wrapper": 1,
+          "schema-compliance": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_004.\n\nDate: 2026-05-12\nNotes: Solid session\nExercises:\n- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ollama:chat:mistral",
+          "label": "mistral:7b"
+        },
+        "response": {
+          "output": " {\n  \"overall_summary\": \"User user_004 had a solid workout session with a focus on lower body strength. The session consisted of Squats and Romanian Deadlifts.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Squat\",\n      \"recommendation\": \"Maintain the same weight (130kg) but consider increasing the number of sets to challenge yourself further in the next session. This will help progressively overload your muscles.\",\n      \"reasoning\": \"The user performed 3 sets of Squats with RPE 7, 7.5, and 8, indicating a good level of exertion but potential room for improvement. Increasing sets can provide additional stimulus for muscle growth and strength gains.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": \"Consider 4 or 5 sets\"\n    },\n    {\n      \"exercise_name\": \"Romanian Deadlift\",\n      \"recommendation\": \"Continue with the current weight (80kg) but aim for a higher rep range in the next session. This will help target muscular endurance.\",\n      \"reasoning\": \"The user performed 3 sets of Romanian Deadlifts with RPE 6, 6.5, and 7, which suggests a moderate level of exertion. Increasing the number of reps per set can stimulate muscular endurance adaptations in the hamstrings.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": \"Consider 10-12 reps per set\",\n      \"suggested_sets\": \"Continue with 3 sets\"\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": [\"Repetition-in-Resistance (RPE) Scale\"]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T4] Format compliance — raw JSON only, no markdown code fences",
+          "vars": {
+            "user_id": "user_004",
+            "date": "2026-05-12",
+            "notes": "Solid session",
+            "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "metric": "no-markdown-wrapper",
+              "weight": 3,
+              "value": "file://./assertions/no-markdown.js"
+            },
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "schema-compliance",
+              "weight": 2,
+              "value": "file://./assertions/schema.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "user_id": "user_004",
+          "date": "2026-05-12",
+          "notes": "Solid session",
+          "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\nfile://./assertions/specificity.js",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.75,
+          "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+          "namedScores": {
+            "json-validity": 1,
+            "evidence-based-reasoning": 1,
+            "specificity": 0
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "evidence-based-reasoning",
+                "weight": 3,
+                "value": "file://./assertions/evidence-based.js"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "11527e04-727f-4eb3-9213-0074ef38637c",
+        "latencyMs": 23747,
+        "namedScores": {
+          "json-validity": 1,
+          "evidence-based-reasoning": 1,
+          "specificity": 0
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_005.\n\nDate: 2026-05-13\nNotes: Consistent session, hit all planned sets\nExercises:\n- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ollama:chat:qwen3:14b",
+          "label": "qwen3:14b (base)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User_005 completed a consistent session with all planned sets executed successfully. Bench Press maintained consistent weight with slight RPE increase, while Barbell Row showed progressive RPE across sets, indicating effective effort.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Maintain current weight and rep scheme, but monitor for signs of fatigue during higher RPE sets.\",\n      \"reasoning\": \"Consistent weight with controlled RPE progression suggests effective load management. The slight increase in RPE on the final set may indicate proximity to failure, which is acceptable but should be balanced with recovery.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Barbell Row (back)\",\n      \"recommendation\": \"Consider a 5-10% weight increase for future sessions, provided form remains intact.\",\n      \"reasoning\": \"Progressive RPE increase across sets (6.5 to 7) suggests effective effort. A slight weight increase could further challenge the muscles while maintaining the same rep range.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 0.75,
+        "success": false,
+        "testCase": {
+          "description": "[T5] Evidence-based reasoning — advice must reference training principles",
+          "vars": {
+            "user_id": "user_005",
+            "date": "2026-05-13",
+            "notes": "Consistent session, hit all planned sets",
+            "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "evidence-based-reasoning",
+              "weight": 3,
+              "value": "file://./assertions/evidence-based.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "user_id": "user_005",
+          "date": "2026-05-13",
+          "notes": "Consistent session, hit all planned sets",
+          "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\nfile://./assertions/specificity.js",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.75,
+          "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+          "namedScores": {
+            "json-validity": 1,
+            "evidence-based-reasoning": 1,
+            "specificity": 0
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "evidence-based-reasoning",
+                "weight": 3,
+                "value": "file://./assertions/evidence-based.js"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "171660e5-5fb9-4ebf-be29-e3b2fd867b6c",
+        "latencyMs": 4395,
+        "namedScores": {
+          "json-validity": 1,
+          "evidence-based-reasoning": 1,
+          "specificity": 0
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_005.\n\nDate: 2026-05-13\nNotes: Consistent session, hit all planned sets\nExercises:\n- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ollama:chat:llama3.2",
+          "label": "llama3.2:3b"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"Good workout session, consistent with expected standards.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press\",\n      \"recommendation\": null,\n      \"reasoning\": \"Good form throughout the entire session, but slight variation in RPE values between sets. Maintaining consistency is key for maximum effectiveness.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    },\n    {\n      \"exercise_name\": \"Barbell Row\",\n      \"recommendation\": null,\n      \"reasoning\": \"Consistent form and progressive overload throughout the session. However, slight variations in RPE values between sets may be due to fatigue or need for adjustments in future workouts.\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}"
+        },
+        "score": 0.75,
+        "success": false,
+        "testCase": {
+          "description": "[T5] Evidence-based reasoning — advice must reference training principles",
+          "vars": {
+            "user_id": "user_005",
+            "date": "2026-05-13",
+            "notes": "Consistent session, hit all planned sets",
+            "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "evidence-based-reasoning",
+              "weight": 3,
+              "value": "file://./assertions/evidence-based.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "user_id": "user_005",
+          "date": "2026-05-13",
+          "notes": "Consistent session, hit all planned sets",
+          "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\nfile://./assertions/specificity.js",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.75,
+          "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+          "namedScores": {
+            "json-validity": 1,
+            "evidence-based-reasoning": 1,
+            "specificity": 0
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "evidence-based-reasoning",
+                "weight": 3,
+                "value": "file://./assertions/evidence-based.js"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\nfile://./assertions/specificity.js",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "2ffc4905-551d-4328-88ca-a461669f74ba",
+        "latencyMs": 5738,
+        "namedScores": {
+          "json-validity": 1,
+          "evidence-based-reasoning": 1,
+          "specificity": 0
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_005.\n\nDate: 2026-05-13\nNotes: Consistent session, hit all planned sets\nExercises:\n- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ollama:chat:mistral",
+          "label": "mistral:7b"
+        },
+        "response": {
+          "output": " {\n  \"overall_summary\": \"The user had a consistent workout session with all planned sets being completed. The chosen weights were moderate, indicating potential for progression.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press\",\n      \"recommendation\": \"Consider increasing the weight or decreasing the reps slightly to continue progressing.\",\n      \"reasoning\": \"The user completed all sets at RPE 6 and 6.5, indicating that the current weight is comfortable and may not provide enough stimulus for further strength gains.\"\n    },\n    {\n      \"exercise_name\": \"Barbell Row\",\n      \"recommendation\": \"Maintain current weight and reps, or slightly increase reps.\",\n      \"reasoning\": \"The user completed all sets at RPE 6.5 and 7, indicating that the current weight is challenging but manageable. To continue progression, consider increasing the number of repetitions.\"\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": [\"Progressive Overload Principle\", \"Rating of Perceived Exertion Scale\"]\n}"
+        },
+        "score": 0.75,
+        "success": false,
+        "testCase": {
+          "description": "[T5] Evidence-based reasoning — advice must reference training principles",
+          "vars": {
+            "user_id": "user_005",
+            "date": "2026-05-13",
+            "notes": "Consistent session, hit all planned sets",
+            "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "evidence-based-reasoning",
+              "weight": 3,
+              "value": "file://./assertions/evidence-based.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "user_id": "user_005",
+          "date": "2026-05-13",
+          "notes": "Consistent session, hit all planned sets",
+          "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "json-validity": 1,
+            "evidence-based-reasoning": 1,
+            "specificity": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "is-json",
+                "metric": "json-validity",
+                "weight": 3
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "evidence-based-reasoning",
+                "weight": 3,
+                "value": "file://./assertions/evidence-based.js"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "metric": "specificity",
+                "weight": 2,
+                "value": "file://./assertions/specificity.js"
+              }
+            }
+          ],
+          "assertion": null
+        },
+        "id": "2cf43bc2-25e4-4c11-a392-1f2f9923571e",
+        "latencyMs": 30383,
+        "namedScores": {
+          "json-validity": 1,
+          "evidence-based-reasoning": 1,
+          "specificity": 1
+        },
+        "prompt": {
+          "raw": "Analyse this workout session for user user_005.\n\nDate: 2026-05-13\nNotes: Consistent session, hit all planned sets\nExercises:\n- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n",
+          "label": "workout-analysis"
+        },
+        "promptId": "f51d9a1b3d7b04139476e4e15673ed6c3f34038842708381cb68ca5b01c80333",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ollama:chat:gAinsModel",
+          "label": "gAinsModel (custom)"
+        },
+        "response": {
+          "output": "{\n  \"overall_summary\": \"User completed all sets with good form and moderate RPE, indicating readiness for progressive overload. Both exercises show potential for increased load.\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"Bench Press (chest)\",\n      \"recommendation\": \"Increase weight to 77.5kg next session while maintaining 5 reps per set\",\n      \"reasoning\": \"Completed all sets with 3-4 reps in reserve (RPE 6-6.5), indicating readiness for load progression without compromising form\",\n      \"suggested_weight_kg\": 77.5,\n      \"suggested_reps\": 5,\n      \"suggested_sets\": 3\n    },\n    {\n      \"exercise_name\": \"Barbell Row (back)\",\n      \"recommendation\": \"Increase weight to 63kg next session while maintaining 8 reps per set\",\n      \"reasoning\": \"Completed all sets with 2-3 reps in reserve (RPE 6.5-7), showing capacity for increased load while maintaining hypertrophy-focused rep range\",\n      \"suggested_weight_kg\": 63,\n      \"suggested_reps\": 8,\n      \"suggested_sets\": 3\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": [\n    \"Progressive overload principles (Zatsiorsky, 2006)\",\n    \"RPE-based loading guidelines (Baker, 2019)\",\n    \"Strength training volume recommendations (Schoenfeld, 2010)\"\n  ]\n}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "[T5] Evidence-based reasoning — advice must reference training principles",
+          "vars": {
+            "user_id": "user_005",
+            "date": "2026-05-13",
+            "notes": "Consistent session, hit all planned sets",
+            "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+          },
+          "assert": [
+            {
+              "type": "is-json",
+              "metric": "json-validity",
+              "weight": 3
+            },
+            {
+              "type": "javascript",
+              "metric": "evidence-based-reasoning",
+              "weight": 3,
+              "value": "file://./assertions/evidence-based.js"
+            },
+            {
+              "type": "javascript",
+              "metric": "specificity",
+              "weight": 2,
+              "value": "file://./assertions/specificity.js"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "user_id": "user_005",
+          "date": "2026-05-13",
+          "notes": "Consistent session, hit all planned sets",
+          "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 15,
+      "failures": 5,
+      "errors": 0,
+      "tokenUsage": {
+        "cached": 0,
+        "completion": 0,
+        "prompt": 0,
+        "total": 0,
+        "numRequests": 20,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0
+        }
+      }
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "gAins Quick Eval — gAinsModel vs key competitors",
+    "prompts": [
+      {
+        "label": "workout-analysis",
+        "raw": "Analyse this workout session for user {{user_id}}.\n\nDate: {{date}}\nNotes: {{notes}}\nExercises:\n{{exercises}}\n\nRespond with a JSON object matching this exact structure (no markdown, no extra text):\n{\n  \"overall_summary\": \"...\",\n  \"exercise_advice\": [\n    {\n      \"exercise_name\": \"...\",\n      \"recommendation\": \"...\",\n      \"reasoning\": \"...\",\n      \"suggested_weight_kg\": null,\n      \"suggested_reps\": null,\n      \"suggested_sets\": null\n    }\n  ],\n  \"recovery_flag\": false,\n  \"sources_used\": []\n}\n"
+      }
+    ],
+    "providers": [
+      {
+        "id": "ollama:chat:gAinsModel",
+        "label": "gAinsModel (custom)"
+      },
+      {
+        "id": "ollama:chat:qwen3:14b",
+        "label": "qwen3:14b (base)"
+      },
+      {
+        "id": "ollama:chat:llama3.2",
+        "label": "llama3.2:3b"
+      },
+      {
+        "id": "ollama:chat:mistral",
+        "label": "mistral:7b"
+      }
+    ],
+    "tests": [
+      {
+        "description": "[T1] Standard progression — low RPE, expect specific load recommendation",
+        "vars": {
+          "user_id": "user_001",
+          "date": "2026-05-13",
+          "notes": "Felt strong, good energy throughout the session",
+          "exercises": "- Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7\n- Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8"
+        },
+        "assert": [
+          {
+            "type": "is-json",
+            "metric": "json-validity",
+            "weight": 3
+          },
+          {
+            "type": "javascript",
+            "metric": "schema-compliance",
+            "weight": 3,
+            "value": "file://./assertions/schema-2-exercises.js"
+          },
+          {
+            "type": "javascript",
+            "metric": "specificity",
+            "weight": 2,
+            "value": "file://./assertions/specificity.js"
+          },
+          {
+            "type": "javascript",
+            "metric": "correct-no-recovery-flag",
+            "weight": 1,
+            "value": "file://./assertions/no-recovery-flag.js"
+          }
+        ]
+      },
+      {
+        "description": "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes",
+        "vars": {
+          "user_id": "user_002",
+          "date": "2026-05-13",
+          "notes": "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation",
+          "exercises": "- Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10\n- Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10\n- Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10"
+        },
+        "assert": [
+          {
+            "type": "is-json",
+            "metric": "json-validity",
+            "weight": 3
+          },
+          {
+            "type": "javascript",
+            "metric": "overtraining-detection",
+            "weight": 5,
+            "value": "file://./assertions/recovery-flag.js"
+          }
+        ]
+      },
+      {
+        "description": "[T3] Safe progression — suggested weight must not exceed 10% above current",
+        "vars": {
+          "user_id": "user_003",
+          "date": "2026-05-13",
+          "notes": "Good session, hit all targets cleanly",
+          "exercises": "- Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5"
+        },
+        "assert": [
+          {
+            "type": "is-json",
+            "metric": "json-validity",
+            "weight": 3
+          },
+          {
+            "type": "javascript",
+            "metric": "safe-progression",
+            "weight": 4,
+            "value": "file://./assertions/safe-progression-bench.js"
+          },
+          {
+            "type": "javascript",
+            "metric": "specificity",
+            "weight": 2,
+            "value": "file://./assertions/specificity.js"
+          }
+        ]
+      },
+      {
+        "description": "[T4] Format compliance — raw JSON only, no markdown code fences",
+        "vars": {
+          "user_id": "user_004",
+          "date": "2026-05-12",
+          "notes": "Solid session",
+          "exercises": "- Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8\n- Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "metric": "no-markdown-wrapper",
+            "weight": 3,
+            "value": "file://./assertions/no-markdown.js"
+          },
+          {
+            "type": "is-json",
+            "metric": "json-validity",
+            "weight": 3
+          },
+          {
+            "type": "javascript",
+            "metric": "schema-compliance",
+            "weight": 2,
+            "value": "file://./assertions/schema.js"
+          }
+        ]
+      },
+      {
+        "description": "[T5] Evidence-based reasoning — advice must reference training principles",
+        "vars": {
+          "user_id": "user_005",
+          "date": "2026-05-13",
+          "notes": "Consistent session, hit all planned sets",
+          "exercises": "- Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5\n- Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7"
+        },
+        "assert": [
+          {
+            "type": "is-json",
+            "metric": "json-validity",
+            "weight": 3
+          },
+          {
+            "type": "javascript",
+            "metric": "evidence-based-reasoning",
+            "weight": 3,
+            "value": "file://./assertions/evidence-based.js"
+          },
+          {
+            "type": "javascript",
+            "metric": "specificity",
+            "weight": 2,
+            "value": "file://./assertions/specificity.js"
+          }
+        ]
+      }
+    ],
+    "scenarios": [],
+    "env": {},
+    "sharing": true,
+    "defaultTest": {
+      "vars": {},
+      "assert": [],
+      "options": {},
+      "metadata": {}
+    },
+    "outputPath": [
+      "results.json"
+    ],
+    "extensions": [],
+    "metadata": {}
+  },
+  "shareableUrl": null
+}

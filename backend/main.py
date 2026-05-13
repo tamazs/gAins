@@ -122,12 +122,20 @@ Respond with a JSON object matching this exact structure (no markdown, no extra 
         raise HTTPException(status_code=500, detail=f"Agent returned non-JSON: {raw}")
 
     session_id = str(uuid.uuid4())
-    save_session(session_id, session.model_dump(mode="json"))
+    generated_at = datetime.now()
+    analysis = {
+        "overall_summary": data["overall_summary"],
+        "exercise_advice": data["exercise_advice"],
+        "recovery_flag": data.get("recovery_flag", False),
+        "sources_used": sources,
+        "generated_at": generated_at.isoformat(),
+    }
+    save_session(session_id, {**session.model_dump(mode="json"), "analysis": analysis})
 
     return WorkoutAdviceResponse(
         user_id=session.user_id,
         session_id=session_id,
-        generated_at=datetime.now(),
+        generated_at=generated_at,
         overall_summary=data["overall_summary"],
         exercise_advice=[ExerciseAdvice(**e) for e in data["exercise_advice"]],
         recovery_flag=data.get("recovery_flag", False),

@@ -1,0 +1,7 @@
+{
+  "name": "gains-eval",
+  "private": true,
+  "devDependencies": {
+    "promptfoo": "0.115.0"
+  }
+}

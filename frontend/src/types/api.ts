@@ -45,8 +45,17 @@ export interface WorkoutAdviceResponse {
   sources_used: string[];
 }
 
+export interface SessionAnalysis {
+  overall_summary: string;
+  exercise_advice: ExerciseAdvice[];
+  recovery_flag: boolean;
+  sources_used: string[];
+  generated_at: string;
+}
+
 export interface SessionDocument extends WorkoutSessionRequest {
   session_id?: string;
+  analysis?: SessionAnalysis;
 }
 
 // Goals

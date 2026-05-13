@@ -1,0 +1,245 @@
+description: "gAins LLM Comparison — Strength Training Coaching Quality"
+
+# Strip <think>...</think> blocks (qwen3, deepseek-r1) before assertions run
+defaultTest:
+  options:
+    transform: "output.replace(/<think>[\\s\\S]*?<\\/think>/gi, '').trim()"
+
+providers:
+  - id: ollama:chat:gAinsModel
+    label: "gAinsModel (custom)"
+
+  - id: ollama:chat:qwen3:14b
+    label: "qwen3:14b (base)"
+
+  - id: ollama:chat:llama3.1
+    label: "llama3.1:8b"
+
+  - id: ollama:chat:mistral
+    label: "mistral:7b"
+
+  - id: ollama:chat:llama3.2
+    label: "llama3.2:3b"
+
+  - id: ollama:chat:qwen2.5:3b
+    label: "qwen2.5:3b"
+
+  - id: ollama:chat:deepseek-r1:1.5b
+    label: "deepseek-r1:1.5b"
+
+prompts:
+  - label: workout-analysis
+    raw: |
+      Analyse this workout session for user {{user_id}}.
+
+      Date: {{date}}
+      Notes: {{notes}}
+      Exercises:
+      {{exercises}}
+
+      Respond with a JSON object matching this exact structure (no markdown, no extra text):
+      {
+        "overall_summary": "...",
+        "exercise_advice": [
+          {
+            "exercise_name": "...",
+            "recommendation": "...",
+            "reasoning": "...",
+            "suggested_weight_kg": null,
+            "suggested_reps": null,
+            "suggested_sets": null
+          }
+        ],
+        "recovery_flag": false,
+        "sources_used": []
+      }
+
+tests:
+  # ─── T1: Standard progression ───────────────────────────────────────────────
+  - description: "[T1] Standard progression — low RPE, should recommend load increase"
+    vars:
+      user_id: user_001
+      date: "2026-05-13"
+      notes: "Felt strong, good energy throughout the session"
+      exercises: |-
+        - Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7
+        - Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+
+      - type: javascript
+        metric: schema-compliance
+        weight: 3
+        value: >-
+          (() => {
+            try {
+              const d = JSON.parse(output);
+              return (
+                typeof d.overall_summary === 'string' && d.overall_summary.length > 10 &&
+                Array.isArray(d.exercise_advice) && d.exercise_advice.length >= 2 &&
+                d.exercise_advice.every(ea =>
+                  typeof ea.exercise_name === 'string' &&
+                  typeof ea.recommendation === 'string' &&
+                  typeof ea.reasoning === 'string'
+                ) &&
+                typeof d.recovery_flag === 'boolean' &&
+                Array.isArray(d.sources_used)
+              );
+            } catch(e) { return false; }
+          })()
+
+      - type: javascript
+        metric: specificity
+        weight: 2
+        value: >-
+          (() => {
+            try {
+              const d = JSON.parse(output);
+              const text = JSON.stringify(d.exercise_advice).toLowerCase();
+              return /\d+\.?\d*\s*kg/.test(text) ||
+                     d.exercise_advice.some(ea => ea.suggested_weight_kg != null);
+            } catch(e) { return false; }
+          })()
+
+      - type: javascript
+        metric: correct-no-recovery-flag
+        weight: 1
+        value: >-
+          (() => { try { return JSON.parse(output).recovery_flag === false; } catch(e) { return false; } })()
+
+  # ─── T2: Overtraining detection ─────────────────────────────────────────────
+  - description: "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes"
+    vars:
+      user_id: user_002
+      date: "2026-05-13"
+      notes: "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation"
+      exercises: |-
+        - Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10
+        - Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10
+        - Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+
+      - type: javascript
+        metric: overtraining-detection
+        weight: 5
+        value: >-
+          (() => { try { return JSON.parse(output).recovery_flag === true; } catch(e) { return false; } })()
+
+  # ─── T3: Safe progression ────────────────────────────────────────────────────
+  - description: "[T3] Safe progression — suggested weight must not exceed 10% above current"
+    vars:
+      user_id: user_003
+      date: "2026-05-13"
+      notes: "Good session, hit all targets cleanly"
+      exercises: |-
+        - Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+
+      - type: javascript
+        metric: safe-progression
+        weight: 4
+        value: >-
+          (() => {
+            try {
+              const d = JSON.parse(output);
+              const bench = d.exercise_advice.find(ea => ea.exercise_name.toLowerCase().includes('bench'));
+              if (!bench || bench.suggested_weight_kg == null) return true;
+              return bench.suggested_weight_kg <= 110;
+            } catch(e) { return false; }
+          })()
+
+      - type: javascript
+        metric: specificity
+        weight: 2
+        value: >-
+          (() => {
+            try {
+              const d = JSON.parse(output);
+              const text = JSON.stringify(d).toLowerCase();
+              return /\d+\.?\d*\s*kg/.test(text) ||
+                     d.exercise_advice.some(ea => ea.suggested_weight_kg != null);
+            } catch(e) { return false; }
+          })()
+
+  # ─── T4: Format compliance ───────────────────────────────────────────────────
+  - description: "[T4] Format compliance — raw JSON only, no markdown code fences"
+    vars:
+      user_id: user_004
+      date: "2026-05-12"
+      notes: "Solid session"
+      exercises: |-
+        - Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8
+        - Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7
+    assert:
+      - type: javascript
+        metric: no-markdown-wrapper
+        weight: 3
+        value: "!output.trim().startsWith('```')"
+
+      - type: is-json
+        metric: json-validity
+        weight: 3
+
+      - type: javascript
+        metric: schema-compliance
+        weight: 2
+        value: >-
+          (() => {
+            try {
+              const d = JSON.parse(output);
+              return 'overall_summary' in d && 'exercise_advice' in d &&
+                     'recovery_flag' in d && 'sources_used' in d;
+            } catch(e) { return false; }
+          })()
+
+  # ─── T5: Evidence-based reasoning ───────────────────────────────────────────
+  - description: "[T5] Evidence-based reasoning — advice must reference training principles"
+    vars:
+      user_id: user_005
+      date: "2026-05-13"
+      notes: "Consistent session, hit all planned sets"
+      exercises: |-
+        - Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5
+        - Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+
+      - type: javascript
+        metric: evidence-based-reasoning
+        weight: 3
+        value: >-
+          (() => {
+            try {
+              const d = JSON.parse(output);
+              const text = JSON.stringify(d).toLowerCase();
+              const terms = [
+                'progressive overload', 'overload', 'rir', 'reps in reserve',
+                'volume', 'hypertrophy', 'progression', 'deload',
+                'rep range', 'fatigue', 'recovery', 'load'
+              ];
+              return terms.filter(t => text.includes(t)).length >= 2;
+            } catch(e) { return false; }
+          })()
+
+      - type: javascript
+        metric: specificity
+        weight: 2
+        value: >-
+          (() => {
+            try {
+              const d = JSON.parse(output);
+              const text = JSON.stringify(d.exercise_advice).toLowerCase();
+              return /\d+\.?\d*\s*kg/.test(text) ||
+                     d.exercise_advice.some(ea => ea.suggested_weight_kg != null);
+            } catch(e) { return false; }
+          })()

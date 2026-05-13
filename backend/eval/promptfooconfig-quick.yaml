@@ -1,0 +1,147 @@
+description: "gAins Quick Eval — gAinsModel vs key competitors"
+
+providers:
+  - id: ollama:chat:gAinsModel
+    label: "gAinsModel (custom)"
+
+  - id: ollama:chat:qwen3:14b
+    label: "qwen3:14b (base)"
+
+  - id: ollama:chat:llama3.2
+    label: "llama3.2:3b"
+
+  - id: ollama:chat:mistral
+    label: "mistral:7b"
+
+prompts:
+  - label: workout-analysis
+    raw: |
+      Analyse this workout session for user {{user_id}}.
+
+      Date: {{date}}
+      Notes: {{notes}}
+      Exercises:
+      {{exercises}}
+
+      Respond with a JSON object matching this exact structure (no markdown, no extra text):
+      {
+        "overall_summary": "...",
+        "exercise_advice": [
+          {
+            "exercise_name": "...",
+            "recommendation": "...",
+            "reasoning": "...",
+            "suggested_weight_kg": null,
+            "suggested_reps": null,
+            "suggested_sets": null
+          }
+        ],
+        "recovery_flag": false,
+        "sources_used": []
+      }
+
+tests:
+  - description: "[T1] Standard progression — low RPE, expect specific load recommendation"
+    vars:
+      user_id: user_001
+      date: "2026-05-13"
+      notes: "Felt strong, good energy throughout the session"
+      exercises: |-
+        - Bench Press (chest): 5 reps @ 80kg RPE 6.5, 5 reps @ 80kg RPE 7, 5 reps @ 80kg RPE 7
+        - Overhead Press (shoulders): 8 reps @ 50kg RPE 7, 8 reps @ 50kg RPE 7.5, 7 reps @ 50kg RPE 8
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+      - type: javascript
+        metric: schema-compliance
+        weight: 3
+        value: file://./assertions/schema-2-exercises.js
+      - type: javascript
+        metric: specificity
+        weight: 2
+        value: file://./assertions/specificity.js
+      - type: javascript
+        metric: correct-no-recovery-flag
+        weight: 1
+        value: file://./assertions/no-recovery-flag.js
+
+  - description: "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes"
+    vars:
+      user_id: user_002
+      date: "2026-05-13"
+      notes: "Absolutely destroyed, joints aching, terrible sleep all week, zero motivation"
+      exercises: |-
+        - Squat (legs): 5 reps @ 120kg RPE 9.5, 4 reps @ 120kg RPE 10, 3 reps @ 120kg RPE 10
+        - Deadlift (back): 3 reps @ 150kg RPE 10, 2 reps @ 150kg RPE 10
+        - Bench Press (chest): 5 reps @ 85kg RPE 9.5, 4 reps @ 85kg RPE 10
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+      - type: javascript
+        metric: overtraining-detection
+        weight: 5
+        value: file://./assertions/recovery-flag.js
+
+  - description: "[T3] Safe progression — suggested weight must not exceed 10% above current"
+    vars:
+      user_id: user_003
+      date: "2026-05-13"
+      notes: "Good session, hit all targets cleanly"
+      exercises: |-
+        - Bench Press (chest): 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7, 5 reps @ 100kg RPE 7.5
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+      - type: javascript
+        metric: safe-progression
+        weight: 4
+        value: file://./assertions/safe-progression-bench.js
+      - type: javascript
+        metric: specificity
+        weight: 2
+        value: file://./assertions/specificity.js
+
+  - description: "[T4] Format compliance — raw JSON only, no markdown code fences"
+    vars:
+      user_id: user_004
+      date: "2026-05-12"
+      notes: "Solid session"
+      exercises: |-
+        - Squat (legs): 3 reps @ 130kg RPE 7, 3 reps @ 130kg RPE 7.5, 3 reps @ 130kg RPE 8
+        - Romanian Deadlift (hamstrings): 8 reps @ 80kg RPE 6, 8 reps @ 80kg RPE 6.5, 8 reps @ 80kg RPE 7
+    assert:
+      - type: javascript
+        metric: no-markdown-wrapper
+        weight: 3
+        value: file://./assertions/no-markdown.js
+      - type: is-json
+        metric: json-validity
+        weight: 3
+      - type: javascript
+        metric: schema-compliance
+        weight: 2
+        value: file://./assertions/schema.js
+
+  - description: "[T5] Evidence-based reasoning — advice must reference training principles"
+    vars:
+      user_id: user_005
+      date: "2026-05-13"
+      notes: "Consistent session, hit all planned sets"
+      exercises: |-
+        - Bench Press (chest): 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6, 5 reps @ 75kg RPE 6.5
+        - Barbell Row (back): 8 reps @ 60kg RPE 6.5, 8 reps @ 60kg RPE 7, 8 reps @ 60kg RPE 7
+    assert:
+      - type: is-json
+        metric: json-validity
+        weight: 3
+      - type: javascript
+        metric: evidence-based-reasoning
+        weight: 3
+        value: file://./assertions/evidence-based.js
+      - type: javascript
+        metric: specificity
+        weight: 2
+        value: file://./assertions/specificity.js
