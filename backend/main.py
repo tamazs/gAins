@@ -90,12 +90,19 @@ def analyse_session(session: WorkoutSessionRequest) -> WorkoutAdviceResponse:
         for e in session.exercises
     )
 
+    exercise_names = ", ".join(e.name for e in session.exercises)
+
     prompt = f"""Analyse this workout session for user {session.user_id}.
 
 Date: {session.date.strftime('%Y-%m-%d')}
 Notes: {session.notes or 'none'}
 Exercises:
 {exercises_text}
+
+Instructions — follow these steps in order:
+1. Call session_history_tool with user_id="{session.user_id}" to retrieve recent past sessions. Use them to detect progression trends, stalling, or signs of overtraining.
+2. For each exercise ({exercise_names}), call rag_tool with a query about optimal programming for that lift (e.g. "progressive overload for bench press", "squat frequency and recovery"). You MUST call rag_tool at least once — grounding your advice in evidence is required.
+3. Using the past session data and the retrieved evidence, produce specific, personalised advice for each exercise: suggest concrete next weights/reps/sets where possible, and set recovery_flag to true if the session data suggests accumulated fatigue.
 
 Respond with a JSON object matching this exact structure (no markdown, no extra text):
 {{
@@ -122,12 +129,20 @@ Respond with a JSON object matching this exact structure (no markdown, no extra 
         raise HTTPException(status_code=500, detail=f"Agent returned non-JSON: {raw}")
 
     session_id = str(uuid.uuid4())
-    save_session(session_id, session.model_dump(mode="json"))
+    generated_at = datetime.now()
+    analysis = {
+        "overall_summary": data["overall_summary"],
+        "exercise_advice": data["exercise_advice"],
+        "recovery_flag": data.get("recovery_flag", False),
+        "sources_used": sources,
+        "generated_at": generated_at.isoformat(),
+    }
+    save_session(session_id, {**session.model_dump(mode="json"), "analysis": analysis})
 
     return WorkoutAdviceResponse(
         user_id=session.user_id,
         session_id=session_id,
-        generated_at=datetime.now(),
+        generated_at=generated_at,
         overall_summary=data["overall_summary"],
         exercise_advice=[ExerciseAdvice(**e) for e in data["exercise_advice"]],
         recovery_flag=data.get("recovery_flag", False),
