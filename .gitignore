@@ -1,0 +1,24 @@
+# Claude Code tooling — local only
+.claude/
+.agents/
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
