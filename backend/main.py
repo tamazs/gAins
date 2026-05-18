@@ -90,12 +90,19 @@ def analyse_session(session: WorkoutSessionRequest) -> WorkoutAdviceResponse:
         for e in session.exercises
     )
 
+    exercise_names = ", ".join(e.name for e in session.exercises)
+
     prompt = f"""Analyse this workout session for user {session.user_id}.
 
 Date: {session.date.strftime('%Y-%m-%d')}
 Notes: {session.notes or 'none'}
 Exercises:
 {exercises_text}
+
+Instructions — follow these steps in order:
+1. Call session_history_tool with user_id="{session.user_id}" to retrieve recent past sessions. Use them to detect progression trends, stalling, or signs of overtraining.
+2. For each exercise ({exercise_names}), call rag_tool with a query about optimal programming for that lift (e.g. "progressive overload for bench press", "squat frequency and recovery"). You MUST call rag_tool at least once — grounding your advice in evidence is required.
+3. Using the past session data and the retrieved evidence, produce specific, personalised advice for each exercise: suggest concrete next weights/reps/sets where possible, and set recovery_flag to true if the session data suggests accumulated fatigue.
 
 Respond with a JSON object matching this exact structure (no markdown, no extra text):
 {{
