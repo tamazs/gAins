@@ -19,9 +19,7 @@ for _mod in [
     "langchain_ollama",
     "langchain_classic",
     "langchain_classic.agents",
-    "mcp",
-    "mcp.client",
-    "mcp.client.stdio",
+    # mcp and fastmcp are real packages (no network calls at import time) — not stubbed
     "langchain_mcp_adapters",
     "langchain_mcp_adapters.tools",
 ]:

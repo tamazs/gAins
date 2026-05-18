@@ -1,25 +1,20 @@
 """
-test_session_history_tool.py — Unit tests for agents/tools/session_history_tool.py
+test_session_history_tool.py — Unit tests for session_history_tool in mcp_server.py
 
-The tool is called via its LangChain .invoke() interface so that the full
-tool wrapping is exercised. get_recent_sessions is patched at the tool's
-import location so the mock is active when the function body runs.
+get_recent_sessions is patched at mcp_server's import location so the mock
+is active when the function body runs.
 """
 
 import pytest
 from unittest.mock import patch
 
-from agents.tools.session_history_tool import session_history_tool
-
-
-def _invoke(user_id: str) -> str:
-    return session_history_tool.invoke({"user_id": user_id})
+from mcp_server import session_history_tool
 
 
 class TestSessionHistoryTool:
     def test_no_sessions_returns_correct_message(self):
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=[]):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=[]):
+            result = session_history_tool("user-1")
         assert "No previous sessions found" in result
         assert "user-1" in result
 
@@ -29,8 +24,8 @@ class TestSessionHistoryTool:
             "exercises": [{"name": "Bench Press", "muscle_group": "chest",
                            "sets": [{"reps": 5, "weight_kg": 100.0}]}],
         }]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "2025-01-15" in result
 
     def test_single_session_contains_exercise_name(self):
@@ -39,8 +34,8 @@ class TestSessionHistoryTool:
             "exercises": [{"name": "Bench Press", "muscle_group": "chest",
                            "sets": [{"reps": 5, "weight_kg": 100.0}]}],
         }]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "Bench Press" in result
 
     def test_single_session_contains_set_summary(self):
@@ -49,8 +44,8 @@ class TestSessionHistoryTool:
             "exercises": [{"name": "Bench Press", "muscle_group": "chest",
                            "sets": [{"reps": 5, "weight_kg": 100.0}]}],
         }]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "5 reps @ 100.0kg" in result
 
     def test_multiple_sessions_both_appear(self):
@@ -62,8 +57,8 @@ class TestSessionHistoryTool:
                 {"name": "Deadlift", "muscle_group": "back",
                  "sets": [{"reps": 3, "weight_kg": 140.0}]}]},
         ]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "Squat" in result
         assert "Deadlift" in result
 
@@ -74,8 +69,8 @@ class TestSessionHistoryTool:
             "exercises": [{"name": "Squat", "muscle_group": "quads",
                            "sets": [{"reps": 5, "weight_kg": 120.0}]}],
         }]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "felt very tired" in result
 
     def test_session_without_notes_omits_notes_label(self):
@@ -84,8 +79,8 @@ class TestSessionHistoryTool:
             "exercises": [{"name": "Squat", "muscle_group": "quads",
                            "sets": [{"reps": 5, "weight_kg": 120.0}]}],
         }]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "Notes:" not in result
 
     def test_set_with_rpe_includes_rpe_in_output(self):
@@ -94,8 +89,8 @@ class TestSessionHistoryTool:
             "exercises": [{"name": "Squat", "muscle_group": "quads",
                            "sets": [{"reps": 5, "weight_kg": 120.0, "rpe": 8}]}],
         }]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "RPE" in result
 
     def test_set_without_rpe_omits_rpe_from_output(self):
@@ -104,6 +99,6 @@ class TestSessionHistoryTool:
             "exercises": [{"name": "Squat", "muscle_group": "quads",
                            "sets": [{"reps": 5, "weight_kg": 120.0}]}],
         }]
-        with patch("agents.tools.session_history_tool.get_recent_sessions", return_value=sessions):
-            result = _invoke("user-1")
+        with patch("mcp_server.get_recent_sessions", return_value=sessions):
+            result = session_history_tool("user-1")
         assert "RPE" not in result
