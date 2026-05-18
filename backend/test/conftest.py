@@ -19,6 +19,11 @@ for _mod in [
     "langchain_ollama",
     "langchain_classic",
     "langchain_classic.agents",
+    "mcp",
+    "mcp.client",
+    "mcp.client.stdio",
+    "langchain_mcp_adapters",
+    "langchain_mcp_adapters.tools",
 ]:
     sys.modules.setdefault(_mod, MagicMock())
 

@@ -4,12 +4,12 @@ test_gains_agent.py — Unit tests for agents/gains_agent.py
 _SourceTracker is tested in full isolation — its on_tool_end logic is the
 core extraction logic worth verifying.
 
-GainsAgent.run is tested by replacing _executor.invoke with a MagicMock so
-we can verify return shapes and source propagation without hitting Ollama.
+GainsAgent.run is tested by replacing _run_async with an AsyncMock so we can
+verify return shapes and source propagation without hitting Ollama or MCP.
 """
 
 import pytest
-from unittest.mock import MagicMock
+from unittest.mock import AsyncMock
 
 from agents.gains_agent import _SourceTracker, GainsAgent
 
@@ -67,50 +67,37 @@ class TestSourceTracker:
 class TestGainsAgentRun:
     def test_run_returns_tuple(self):
         agent = GainsAgent()
-        agent._executor.invoke = MagicMock(return_value={"output": '{"result": "ok"}'})
+        agent._run_async = AsyncMock(return_value=('{"result": "ok"}', []))
         result = agent.run("test input")
         assert isinstance(result, tuple)
         assert len(result) == 2
 
     def test_run_output_is_string(self):
         agent = GainsAgent()
-        agent._executor.invoke = MagicMock(return_value={"output": '{"key": "value"}'})
+        agent._run_async = AsyncMock(return_value=('{"key": "value"}', []))
         output, _ = agent.run("test input")
         assert isinstance(output, str)
 
     def test_run_sources_is_list(self):
         agent = GainsAgent()
-        agent._executor.invoke = MagicMock(return_value={"output": "result"})
+        agent._run_async = AsyncMock(return_value=("result", []))
         _, sources = agent.run("test input")
         assert isinstance(sources, list)
 
-    def test_run_output_matches_executor_output(self):
+    def test_run_output_matches_async_output(self):
         agent = GainsAgent()
-        agent._executor.invoke = MagicMock(return_value={"output": "expected output"})
+        agent._run_async = AsyncMock(return_value=("expected output", []))
         output, _ = agent.run("some prompt")
         assert output == "expected output"
 
-    def test_sources_from_tracker_are_returned(self):
-        """
-        Simulate the executor calling on_tool_end callbacks during invocation.
-        We do this by providing a custom invoke that calls our tracker directly.
-        """
+    def test_sources_returned_from_async(self):
         agent = GainsAgent()
-
-        def _fake_invoke(inputs, config=None):
-            # Simulate a tool call producing a [Source:] line
-            if config and "callbacks" in config:
-                for cb in config["callbacks"]:
-                    if hasattr(cb, "on_tool_end"):
-                        cb.on_tool_end("[Source: science.pdf | similarity: 0.9]\ntext")
-            return {"output": "result"}
-
-        agent._executor.invoke = _fake_invoke
+        agent._run_async = AsyncMock(return_value=("result", ["science.pdf"]))
         _, sources = agent.run("test")
         assert "science.pdf" in sources
 
-    def test_empty_sources_when_no_tool_called(self):
+    def test_empty_sources_when_none_returned(self):
         agent = GainsAgent()
-        agent._executor.invoke = MagicMock(return_value={"output": "direct answer"})
+        agent._run_async = AsyncMock(return_value=("direct answer", []))
         _, sources = agent.run("prompt")
         assert sources == []

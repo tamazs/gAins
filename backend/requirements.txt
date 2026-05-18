@@ -2,6 +2,7 @@ fastapi
 pydantic
 uvicorn
 fastmcp
+langchain-mcp-adapters
 pymongo
 motor
 python-dotenv
