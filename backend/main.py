@@ -103,6 +103,7 @@ Instructions — follow these steps in order:
 1. Call session_history_tool with user_id="{session.user_id}" to retrieve recent past sessions. Use them to detect progression trends, stalling, or signs of overtraining.
 2. For each exercise ({exercise_names}), call rag_tool with a query about optimal programming for that lift (e.g. "progressive overload for bench press", "squat frequency and recovery"). You MUST call rag_tool at least once — grounding your advice in evidence is required.
 3. Using the past session data and the retrieved evidence, produce specific, personalised advice for each exercise: suggest concrete next weights/reps/sets where possible, and set recovery_flag to true if the session data suggests accumulated fatigue.
+4. In sources_used, list ONLY the source names that appeared in [Source: ...] tags in the rag_tool results. Do not invent or paraphrase source names — copy them exactly as they appeared.
 
 Respond with a JSON object matching this exact structure (no markdown, no extra text):
 {{
@@ -237,11 +238,13 @@ Instructions:
 1. Call goal_entries_tool with user_id="{user_id}" to retrieve their entry history.
 2. Call rag_tool with a query relevant to progressing in {exercise_name} toward the target.
 3. Based on the entry history and retrieved evidence, give specific advice on how to reach the target.
+4. In sources_used, list ONLY the source names that appeared in [Source: ...] tags in the rag_tool results. Do not invent or paraphrase source names — copy them exactly as they appeared.
 
 Respond with a JSON object matching this exact structure (no markdown, no extra text):
 {{
   "advice": "...",
-  "next_session_suggestion": "..."
+  "next_session_suggestion": "...",
+  "sources_used": []
 }}"""
 
     raw, sources = agent.run(prompt)

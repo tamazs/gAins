@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, BookOpen, TrendingUp, Sparkles } from 'lucide-react';
+import { ArrowLeft, BookOpen, Sparkles } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useSessions } from '../hooks/useSessions';
-import { ProgressChart } from '../components/sessions/ProgressChart';
 import { Badge } from '../components/ui/Badge';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
@@ -155,22 +154,6 @@ export function SessionDetailPage() {
         </div>
       )}
 
-      {/* Progression Charts */}
-      {sessions.length >= 2 && (
-        <div>
-          <h2 className="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-3 flex items-center gap-2">
-            <TrendingUp size={14} /> Progression
-          </h2>
-          <div className="space-y-4">
-            {session.exercises.map((ex) => (
-              <Card key={ex.name}>
-                <p className="text-sm font-medium text-[var(--text-secondary)] mb-3">{ex.name}</p>
-                <ProgressChart sessions={sessions} exerciseName={ex.name} />
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

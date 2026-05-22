@@ -1,9 +1,9 @@
 description: "gAins LLM Comparison — Strength Training Coaching Quality"
 
-# Strip <think>...</think> blocks (qwen3, deepseek-r1) before assertions run
+# Strip <think>...</think> blocks (qwen3, deepseek-r1) and markdown fences before assertions run
 defaultTest:
   options:
-    transform: "output.replace(/<think>[\\s\\S]*?<\\/think>/gi, '').trim()"
+    transform: "output.replace(/<think>[\\s\\S]*?<\\/think>/gi, '').trim().replace(/^```(?:json)?\\s*/i, '').replace(/\\s*```\\s*$/, '').trim()"
 
 providers:
   - id: ollama:chat:gAinsModel
@@ -72,42 +72,17 @@ tests:
       - type: javascript
         metric: schema-compliance
         weight: 3
-        value: >-
-          (() => {
-            try {
-              const d = JSON.parse(output);
-              return (
-                typeof d.overall_summary === 'string' && d.overall_summary.length > 10 &&
-                Array.isArray(d.exercise_advice) && d.exercise_advice.length >= 2 &&
-                d.exercise_advice.every(ea =>
-                  typeof ea.exercise_name === 'string' &&
-                  typeof ea.recommendation === 'string' &&
-                  typeof ea.reasoning === 'string'
-                ) &&
-                typeof d.recovery_flag === 'boolean' &&
-                Array.isArray(d.sources_used)
-              );
-            } catch(e) { return false; }
-          })()
+        value: file://./assertions/schema-2-exercises.js
 
       - type: javascript
         metric: specificity
         weight: 2
-        value: >-
-          (() => {
-            try {
-              const d = JSON.parse(output);
-              const text = JSON.stringify(d.exercise_advice).toLowerCase();
-              return /\d+\.?\d*\s*kg/.test(text) ||
-                     d.exercise_advice.some(ea => ea.suggested_weight_kg != null);
-            } catch(e) { return false; }
-          })()
+        value: file://./assertions/specificity.js
 
       - type: javascript
         metric: correct-no-recovery-flag
         weight: 1
-        value: >-
-          (() => { try { return JSON.parse(output).recovery_flag === false; } catch(e) { return false; } })()
+        value: file://./assertions/no-recovery-flag.js
 
   # ─── T2: Overtraining detection ─────────────────────────────────────────────
   - description: "[T2] Overtraining — failed reps, extreme RPE, exhaustion notes"
@@ -127,8 +102,7 @@ tests:
       - type: javascript
         metric: overtraining-detection
         weight: 5
-        value: >-
-          (() => { try { return JSON.parse(output).recovery_flag === true; } catch(e) { return false; } })()
+        value: file://./assertions/recovery-flag.js
 
   # ─── T3: Safe progression ────────────────────────────────────────────────────
   - description: "[T3] Safe progression — suggested weight must not exceed 10% above current"
@@ -146,28 +120,12 @@ tests:
       - type: javascript
         metric: safe-progression
         weight: 4
-        value: >-
-          (() => {
-            try {
-              const d = JSON.parse(output);
-              const bench = d.exercise_advice.find(ea => ea.exercise_name.toLowerCase().includes('bench'));
-              if (!bench || bench.suggested_weight_kg == null) return true;
-              return bench.suggested_weight_kg <= 110;
-            } catch(e) { return false; }
-          })()
+        value: file://./assertions/safe-progression-bench.js
 
       - type: javascript
         metric: specificity
         weight: 2
-        value: >-
-          (() => {
-            try {
-              const d = JSON.parse(output);
-              const text = JSON.stringify(d).toLowerCase();
-              return /\d+\.?\d*\s*kg/.test(text) ||
-                     d.exercise_advice.some(ea => ea.suggested_weight_kg != null);
-            } catch(e) { return false; }
-          })()
+        value: file://./assertions/specificity.js
 
   # ─── T4: Format compliance ───────────────────────────────────────────────────
   - description: "[T4] Format compliance — raw JSON only, no markdown code fences"
@@ -182,7 +140,7 @@ tests:
       - type: javascript
         metric: no-markdown-wrapper
         weight: 3
-        value: "!output.trim().startsWith('```')"
+        value: file://./assertions/no-markdown.js
 
       - type: is-json
         metric: json-validity
@@ -191,14 +149,7 @@ tests:
       - type: javascript
         metric: schema-compliance
         weight: 2
-        value: >-
-          (() => {
-            try {
-              const d = JSON.parse(output);
-              return 'overall_summary' in d && 'exercise_advice' in d &&
-                     'recovery_flag' in d && 'sources_used' in d;
-            } catch(e) { return false; }
-          })()
+        value: file://./assertions/schema.js
 
   # ─── T5: Evidence-based reasoning ───────────────────────────────────────────
   - description: "[T5] Evidence-based reasoning — advice must reference training principles"
@@ -217,29 +168,9 @@ tests:
       - type: javascript
         metric: evidence-based-reasoning
         weight: 3
-        value: >-
-          (() => {
-            try {
-              const d = JSON.parse(output);
-              const text = JSON.stringify(d).toLowerCase();
-              const terms = [
-                'progressive overload', 'overload', 'rir', 'reps in reserve',
-                'volume', 'hypertrophy', 'progression', 'deload',
-                'rep range', 'fatigue', 'recovery', 'load'
-              ];
-              return terms.filter(t => text.includes(t)).length >= 2;
-            } catch(e) { return false; }
-          })()
+        value: file://./assertions/evidence-based.js
 
       - type: javascript
         metric: specificity
         weight: 2
-        value: >-
-          (() => {
-            try {
-              const d = JSON.parse(output);
-              const text = JSON.stringify(d.exercise_advice).toLowerCase();
-              return /\d+\.?\d*\s*kg/.test(text) ||
-                     d.exercise_advice.some(ea => ea.suggested_weight_kg != null);
-            } catch(e) { return false; }
-          })()
+        value: file://./assertions/specificity.js
